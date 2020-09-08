@@ -1,3 +1,5 @@
+![1 (1)](https://user-images.githubusercontent.com/68408645/92433461-24273280-f1d8-11ea-8de7-fb2c793f449c.jpg)
+
 
 # 최종 조별과제 - 가지마켓 시스템
 
@@ -6,7 +8,7 @@
 
 # Table of contents
 
-- [최종 조별과제 - 인터넷 강의수강 시스템](#최종 조별과제 - 인터넷 강의수강 시스템)
+- [최종 조별과제 - 가지마켓](#최종 조별과제 - 가지마켓 시스템)
   - [서비스 시나리오](#서비스-시나리오)
   - [체크포인트](#체크포인트)
   - [분석/설계](#분석설계)
@@ -109,7 +111,7 @@
 
 
 ## Event Storming 결과
-* MSAEz 로 모델링한 이벤트스토밍 결과:  http://msaez.io/#/storming/RYTliHDEOOYT0NAZ6Xoodg4HP3H3/every/18a58ddb3072e7c25041a1c9361a9635/-M5LUZ65cww2eehQz7RL
+* MSAEz 로 모델링한 이벤트스토밍 결과:  http://www.msaez.io/#/storming/pLzx0ezwcRPQ2tsri5QwsUm1Qtm2/share/38b8b63428e2f8a68efa17070e081532/-MGayLuEvuhHUT2B3Waf
 
 
 
