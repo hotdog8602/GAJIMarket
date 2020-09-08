@@ -1,4 +1,4 @@
-![1 (1)](https://user-images.githubusercontent.com/68408645/92433461-24273280-f1d8-11ea-8de7-fb2c793f449c.jpg)
+
 
 
 # 최종 조별과제 - 가지마켓 시스템
