@@ -36,6 +36,7 @@
 1. 고객이 회원 가입한다.
 1. 고객이 회원 탈퇴하면 등록한 상품이 삭제된다.
 1. 고객(판매자)은 상품을 등록/삭제할 수 있다.
+1. 사용자별 등록한 제품 및 구매 내역을 조회 한다.
 
 비기능적 요구사항
 1. 트랜잭션
@@ -119,30 +120,30 @@
 ![1차 초기](https://user-images.githubusercontent.com/68408645/92437959-e67bd700-f1e2-11ea-83ae-01ee15a62f25.jpg)
 
     - 도메인 서열 분리 
-        - Core Domain:  수강신청(front), 강의관리 : 핵심 서비스이며, 연간 Up-time SLA 수준을 99.999% 목표, 배포주기는 수강신청의 경우 1주일 1회 미만, 강의관리의 경우 1개월 1회 미만
-        - Supporting Domain:   Dashboard : 경쟁력을 내기위한 서비스이며, SLA 수준은 연간 60% 이상 uptime 목표, 배포주기는 각 팀의 자율이나 표준 스프린트 주기가 1주일 이므로 1주일 1회 이상을 기준으로 함.
-        - General Domain:   결제 : 결제서비스로 3rd Party 외부 서비스를 사용하는 것이 경쟁력이 높음 (핑크색으로 이후 전환할 예정)
+        - Core Domain:  Product,  Purchase : 핵심 서비스이며, 연간 Up-time SLA 수준을 99.999% 목표, 배포주기는 Purchase의 경우 1주일 1회 미만, Product의 경우 1개월 1회 미만
+        - Supporting Domain:   Dashboard(My Page) : 경쟁력을 내기위한 서비스이며, SLA 수준은 연간 60% 이상 uptime 목표, 배포주기는 각 팀의 자율이나 표준 스프린트 주기가 1주일 이므로 1주일 1회 이상을 기준으로 함.
+        - General Domain:   Payment(결제) : 결제서비스로 3rd Party 외부 서비스를 사용하는 것이 경쟁력이 높음 (핑크색으로 이후 전환할 예정)
 
 
 ### 완성된 1차 모형
 
-![image](https://user-images.githubusercontent.com/48303857/79729946-15c0a300-832b-11ea-8247-4e261f22690d.jpeg)
+![1차 완료](https://user-images.githubusercontent.com/68408645/92439510-ecbf8280-f1e5-11ea-8792-d782ebc8f4f1.jpg)
 
     - View Model 추가
 
 
 ### 1차 완성본에 대한 기능적/비기능적 요구사항을 커버하는지 검증
-
-    - 학생이 강의를 선택하여 수강신청 한다 (ok)
-    - 학생이 결제한다 (ok -sync)
-    - 수강신청이 되면 수강신청 내역이 강사의 강의시스템에 전달된다 (ok - event driven)
-    - 학생이 수강신청을 취소한다 (ok)
-    - 수강신청이 취소되면 결제가 취소된다 (ok)
-    - 강사가 강의를 개설한다 (ok)
-    - 강사가 개설된 강의를 취소한다 (ok)
-    - 강사가 강의를 취소하면 학생의 수강신청이 취소된다 (ok)
-    - 학생이 수강신청 내용을 조회한다 (view)
-    - 강사가 강의수강 인원을 조회한다 (view)
+    - 고객(구매자)이 상품을 구매한다. (ok)
+    - 고객이 결제한다. (ok - sync)
+    - 결제가 완료되면 [상품서비스]에서 상품의 상태가 ‘판매 완료’로 변경된다. (ok - event driven)
+    - 고객이 구매를 취소할 수 있다. (ok)
+    - 구매가 취소되면 결제가 취소된다. (ok - event driven)
+    - 결제가 취소되면, [상품서비스]에서 상품의 상태가 ‘판매 중’으로 바뀐다. (ok - event driven)
+    - 고객이 회원 가입한다.(ok) 
+    - 고객이 회원 탈퇴하면 등록한 상품이 삭제된다.(ok - event driven)
+    - 고객(판매자)은 상품을 등록/삭제할 수 있다. (ok)
+    - 사용자별 등록한 제품 및 구매 내역을 조회 한다.(view)
+ 
 
 ### 1차 모형에서 요구사항을 커버하도록 모델링됨 
 
@@ -158,7 +159,8 @@
 
 ## 헥사고날 아키텍처 다이어그램 도출
     
-![image](https://user-images.githubusercontent.com/63028469/79846797-d3b26280-83f9-11ea-9ad7-a7e6b4bea18e.png)
+
+![헥사고날](https://user-images.githubusercontent.com/68408645/92439294-7cb0fc80-f1e5-11ea-80a3-14c814952d35.png)
 
 
     - Chris Richardson, MSA Patterns 참고하여 Inbound adaptor와 Outbound adaptor를 구분함
