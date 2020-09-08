@@ -115,26 +115,14 @@
 
 
 
-### 조직 및 요구사항 도출 도출
-![image](https://user-images.githubusercontent.com/48303857/79729383-5cfa6400-832a-11ea-89b6-53eca4de1ab8.jpeg)
-
 ### 이벤트도출, 액터 커맨드 부착, 어그리게잇, 바운디드 컨텍스트로 묶기
-![image](https://user-images.githubusercontent.com/48303857/79729452-74d1e800-832a-11ea-9b08-0d2807c69a28.jpeg)
+![1차 초기](https://user-images.githubusercontent.com/68408645/92437959-e67bd700-f1e2-11ea-83ae-01ee15a62f25.jpg)
 
     - 도메인 서열 분리 
         - Core Domain:  수강신청(front), 강의관리 : 핵심 서비스이며, 연간 Up-time SLA 수준을 99.999% 목표, 배포주기는 수강신청의 경우 1주일 1회 미만, 강의관리의 경우 1개월 1회 미만
         - Supporting Domain:   Dashboard : 경쟁력을 내기위한 서비스이며, SLA 수준은 연간 60% 이상 uptime 목표, 배포주기는 각 팀의 자율이나 표준 스프린트 주기가 1주일 이므로 1주일 1회 이상을 기준으로 함.
         - General Domain:   결제 : 결제서비스로 3rd Party 외부 서비스를 사용하는 것이 경쟁력이 높음 (핑크색으로 이후 전환할 예정)
 
-### 폴리시 부착
-
-![image](https://user-images.githubusercontent.com/48303857/79729649-b4003900-832a-11ea-875f-c0e8dfc6ccb4.jpeg)
-
-### 폴리시의 이동과 컨텍스트 매핑 (Blue는 Pub/Sub, Orange는 Req/Resp)
-
-![image](https://user-images.githubusercontent.com/48303857/79729705-c67a7280-832a-11ea-828f-fc0cc5510e17.jpeg)
-
-![image](https://user-images.githubusercontent.com/48303857/79729768-d72ae880-832a-11ea-9900-8e0e0e281d87.jpeg)
 
 ### 완성된 1차 모형
 
